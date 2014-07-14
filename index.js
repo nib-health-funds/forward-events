@@ -13,10 +13,12 @@ function forward(src, dest, callback) {
     emit.apply(src, arguments);
 
     //extract the type
-    var args = Array.prototype.slice.call(arguments, 0);
-    var type = args.shift();
+    var
+      args = Array.prototype.slice.call(arguments, 0),
+      type = args.shift()
+    ;
 
-    //let the dat abe modified
+    //let the event type and arguments be modified
     if (callback) {
       var r = callback(type, args, src);
       type = r.type;
