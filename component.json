@@ -1,0 +1,10 @@
+{
+  "name": "forward-events",
+  "scripts": ["index.js"],
+  "development": {
+    "dependencies": {
+      "component/assert": "0.4.0",
+      "component/emitter": "1.1.3"
+    }
+  }
+}
