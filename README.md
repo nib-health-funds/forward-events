@@ -2,6 +2,35 @@
 
 Forward events from a source emitter to a destination emitter.
 
+## Installation
+
+ComponentJS:
+
+    $ component install nib-health-funds/forward-events
+    
+NodeJS
+   
+    $ npm install --save nib-forward-events
+
+## Usage
+    
+    var
+        forward = require('forward-events'),
+        a = new Emitter(),
+        b = new Emitter()
+    ;
+    
+    //forward the event to another emitter
+    forward(a, b);
+    
+    //modify the event and forward the event to another emitter
+    forward(a, b, function(type, args, src) {
+      return {
+        type:      'test:'+type, //prefix the event name
+        arguments:  args
+      }
+    });
+
 ## Methods
 
 ### forward(src, dest, callback)

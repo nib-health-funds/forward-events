@@ -1,6 +1,12 @@
-var forward = require('forward-events');
 var assert = require('assert');
-var Emitter = require('emitter');
+var Emitter = require('component-emitter');
+
+var forward;
+try {
+	forward = require('..')
+} catch(e) {
+	forward = require('forward-events');
+}
 
 describe('forward', function() {
 
@@ -25,7 +31,6 @@ describe('forward', function() {
   it('should modify events', function(done) {
 
     forward(a, b, function(type, arguments, src) {
-      console.log(arguments.unshift)
       arguments.unshift(src);
       return {
         type:      'test:'+type,
